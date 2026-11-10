@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /scratch/
+Disallow: /api/
+
+Sitemap: https://urbanfarmz.in/sitemap.xml
+

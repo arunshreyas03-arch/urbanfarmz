@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-farm-darkest: #050f09;
+  --color-farm-dark: #0a1d12;
+  --color-farm-forest: #11291b;
+  --color-farm-moss: #1c3d2a;
+  --color-farm-emerald: #23593b;
+  --color-farm-leaf: #34a853;
+  --color-farm-bright: #22c55e;
+  --color-farm-lime: #84cc16;
+  --color-farm-neon: #00ff88;
+  --color-farm-sand: #f8f5ee;
+  --color-farm-cream: #faf8f2;
+  --color-farm-earth: #4a3b32;
+  --color-farm-clay: #c86d51;
+  --color-farm-gold: #e0a96d;
+
+  --font-sans: 'Montserrat', sans-serif;
+  --font-hero: 'Comfortaa', cursive, sans-serif;
+
+  --shadow-glow: 0 0 35px -5px rgba(34, 197, 94, 0.3);
+  --shadow-glow-lg: 0 0 50px -5px rgba(0, 255, 136, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #050f09;
+  color: #f3f4f6;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+/* Explicit font utility classes */
+.font-hero {
+  font-family: 'Comfortaa', cursive, sans-serif !important;
+}
+
+.font-sans,
+.font-display {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+::selection {
+  background: #22c55e;
+  color: #050f09;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050f09;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c3d2a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #23593b;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(12, 30, 19, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-lime {
+  background: rgba(10, 29, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.glass-nav {
+  background: rgba(5, 15, 9, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle scanline animation */
+@keyframes scanningLine {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.scanline-effect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.8), transparent);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.9);
+  animation: scanningLine 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
